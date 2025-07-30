@@ -50,7 +50,7 @@ jobs:
     env:
       PR_NUMBER: ${{ needs.prepare_jobs.outputs.pr_number }}
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
@@ -69,7 +69,7 @@ jobs:
           - polygon
           - avalanche
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run tests
         uses: ./.github/actions/cypress
@@ -91,7 +91,7 @@ jobs:
           - optimism
           - ethereum
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run tests
         uses: ./.github/actions/cypress
@@ -110,7 +110,7 @@ jobs:
     env:
       PR_NUMBER: ${{ needs.prepare_jobs.outputs.pr_number }}
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           persist-credentials: false
 
@@ -155,7 +155,7 @@ jobs:
           - polygon
           - avalanche
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run tests
         uses: ./.github/actions/cypress
@@ -177,7 +177,7 @@ jobs:
           - optimism
           - ethereum
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run tests
         uses: ./.github/actions/cypress
@@ -198,7 +198,7 @@ jobs:
           - mobile
           - governance-stake
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Run tests
         uses: ./.github/actions/cypress
@@ -220,7 +220,7 @@ jobs:
     env:
       PR_NUMBER: ${{ needs.prepare_jobs.outputs.pr_number }}
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Comment
         uses: ./.github/actions/fork-result-comment
@@ -250,7 +250,7 @@ jobs:
     env:
       PR_NUMBER: ${{ needs.prepare_jobs.outputs.pr_number }}
     steps:
-      - uses: actions/checkout@2541b1294d2704b0964813337f33b291d3f8596b # v3.0.2
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
 
       - name: Comment
         uses: ./.github/actions/fork-result-comment
