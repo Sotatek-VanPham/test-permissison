@@ -1,0 +1,17 @@
+{
+  "short_name": "Colend",
+  "name": "Colend",
+  "description": "Non-custodial liquidity protocol",
+  "iconPath": "logo.svg",
+  "icons": [
+    {
+      "src": "logo.svg",
+      "sizes": "32x32",
+      "type": "image/svg"
+    }
+  ],
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#1B2030",
+  "background_color": "#ffffff"
+}

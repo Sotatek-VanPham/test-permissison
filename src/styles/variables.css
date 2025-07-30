@@ -1,0 +1,57 @@
+body {
+  --wcm-z-index: 1300;
+  background-image: url('./../../public/bg-img.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@media screen and (max-width: 560px) {
+  body {
+    background-image: url('./../../public/bg-mobile.png');
+    background-color: #131313;
+  }
+}
+.MuiSwitch-thumb {
+  background-color: #1a1a1c;
+  border-radius: 50%;
+}
+
+.Mui-checked .MuiSwitch-thumb {
+  background-color: #999eba !important;
+}
+
+.MuiSwitch-track {
+  background-color: #5a5f8080 !important;
+  border-radius: 50px;
+}
+.icon-token img[alt]:after {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  content: '';
+  background-image: url('./../../public/icons/tokens/unknow.svg');
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.bg-item {
+  background-image: url('./../../public/bg-item.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 16px;
+}
+
+.MuiPaginationItem-root {
+  color: #fff;
+}
+
+@media screen and (max-width: 1310px) and (min-width: 960px) {
+  #__next {
+    width: max-content;
+  }
+}

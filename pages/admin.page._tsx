@@ -1,0 +1,81 @@
+import { Container, Typography } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { MainLayout } from 'src/layouts/MainLayout';
+import { useSoulBoundTokenContract } from 'src/libs/hooks/useContract';
+import { useWeb3Context } from 'src/libs/hooks/useWeb3Context';
+import { useRootStore } from 'src/store/root';
+
+export default function Admin() {
+  const { currentAccount } = useWeb3Context();
+  const { currentMarketData } = useRootStore((store) => store);
+  const soulBoundTokenAddress = currentMarketData.addresses.SOUL_BOUND_TOKEN;
+  const soulBoundTokenContract = useSoulBoundTokenContract(soulBoundTokenAddress);
+  const [mintData, setMinData] = useState({
+    to: '',
+    asset: '',
+    role: '',
+  });
+
+  const [tokenId, setTokenId] = useState<number>();
+
+  const handleMint = async () => {
+    try {
+      if (soulBoundTokenContract) {
+        const { to, asset, role } = mintData;
+        const params = [to, asset, Number(role)];
+        await soulBoundTokenContract.mintSBT(...params);
+      }
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+  const handleBurn = async () => {
+    try {
+      if (soulBoundTokenContract) {
+        const params = [tokenId];
+        await soulBoundTokenContract.revokeSBTWithID(...params);
+      }
+    } catch (error) {
+      console.log('error', error);
+    }
+  };
+
+  const getUserSBTsDetail = async () => {
+    if (soulBoundTokenContract && currentAccount) {
+      const userSBTDetail = await soulBoundTokenContract.userSBTsDetail(currentAccount);
+      console.log('userSBTDetail', userSBTDetail);
+    }
+  };
+
+  useEffect(() => {
+    getUserSBTsDetail();
+  }, [currentAccount, soulBoundTokenContract]);
+
+  return (
+    <MainLayout>
+      <Container>
+        <Typography color="#fff">Mint</Typography>
+
+        <input placeholder="To" onChange={(e) => setMinData({ ...mintData, to: e.target.value })} />
+        <input
+          placeholder="Asset"
+          onChange={(e) => setMinData({ ...mintData, asset: e.target.value })}
+        />
+        <input
+          placeholder="Role"
+          onChange={(e) => setMinData({ ...mintData, role: e.target.value })}
+        />
+        <Typography color="#fff">Role Example: Depositor=0, Borrower=1, Liquidator=2</Typography>
+
+        <button onClick={handleMint}>Button Mint</button>
+
+        <br />
+
+        <Typography color="#fff">Burn</Typography>
+        <input placeholder="TokenId" onChange={(e) => setTokenId(Number(e.target.value))} />
+        <button onClick={handleBurn}>Button Burn</button>
+      </Container>
+    </MainLayout>
+  );
+}
